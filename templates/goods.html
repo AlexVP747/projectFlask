@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block styles %}
+<link rel="stylesheet" href="/static/css/goods.css">
+
+{% endblock styles %}
+ 
+{% block title %}Товары{% endblock title %}
+
+{% block header %}
+
+{% endblock header %}
+
+{% block main %}
+  <form action="" metod="post">
+    <label for="min">от (руб.)</label>
+    <input type="number" name="min" id="min">
+
+    <label for="max">от (руб.)</label>
+    <input type="number" name="max" id="max">
+
+    <input type="submit" value="Найти">
+  </form>
+
+
+
+ <div class="external">
+ {% for good in goods %}
+ <article>
+          <div class="title">
+            <h2 >{{ good[1] }}</h2>
+           </div>
+           <div> 
+            {{ good[4] }}
+           </div>
+           <div>
+            <p>{{ good[3] }}</p>
+           </div>
+           <div>
+            <p>{{ good[2] }}</p>
+          </div>
+        
+</article>
+ {% endfor %}
+ </div>
+{% endblock main %}
+
+{% block footer %}
+
+{% endblock footer %}

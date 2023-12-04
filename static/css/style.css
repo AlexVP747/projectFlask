@@ -1,0 +1,45 @@
+@font-face {
+  font-family: "Nav";
+  src: url("/static/fonts/SaarSPDemo.otf");
+}
+main{
+  /* background-color: rgba(148, 148, 210, 0.5); */
+}
+h1{
+  text-align: center;
+}
+
+header{
+  background-color: goldenrod;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  font-family: "Nav";
+}
+.menu-btns{
+  margin: 45px;
+  hyphens: auto;
+}
+
+a{
+  color: black;
+  text-decoration: none;
+  font-size: 18px;
+  transition: 200ms;
+}
+a:hover{
+  color: brown;
+  }
+body{
+  background-image: url("/static/css/img/foto.jpg");
+  background-size: cover;
+}
+footer{
+  background-color: rgba(28, 206, 206, 0.2);
+  position: fixed; 
+  left: 5px; right: 5px; top: 700px; bottom: 5px;
+  width: auto;
+}
+p{
+  margin-left: 10px;
+}

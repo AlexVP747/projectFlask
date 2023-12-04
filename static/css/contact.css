@@ -1,0 +1,11 @@
+body{
+  background-image: url("/static/css/img/fotocon.jpg");
+  
+}
+header{
+  background-color: rgba(187, 77, 115, 0.5);
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  font-family: "Nav";
+}
