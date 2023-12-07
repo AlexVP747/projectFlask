@@ -9,3 +9,7 @@ header{
   justify-content: center;
   font-family: "Nav";
 }
+
+a:hover{
+  color: rgb(189, 154, 154);
+}
