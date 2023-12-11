@@ -25,3 +25,19 @@ def getRangeGoods(minPrice, maxPrice):
   connection.close()
 
   return result
+
+# Создаем функцию поиска пользователя в базе данных
+def getUser(login, password):
+  connection = sqlite3.connect("base.db")
+  cursor = connection.cursor()
+
+  cursor.execute("""
+      SELECT *
+      FROM users
+      WHERE login = ? AND password = ?                                              
+  """, (login, password))
+  result = cursor.fetchone()
+
+  connection.close()
+
+  return result
