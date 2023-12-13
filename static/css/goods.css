@@ -1,5 +1,5 @@
 body{
-  background-image: url("/static/css/img/fotok.jpg");
+  background-image: url("/static/css/fotok.jpg");
 }
 header{
   background-color: rgba(92, 82, 58, 0.5);
@@ -27,4 +27,8 @@ article{
 .title{
  color: rgb(41, 41, 111);
 }
-  
+
+img{
+  height: 200px;
+  width: 200px;
+}

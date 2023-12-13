@@ -1,9 +1,9 @@
 @font-face {
   font-family: "Nav";
-  src: url("/static/fonts/SaarSPDemo.otf");
+  src: url("/static/css/fonts/SaarSPDemo.otf");
 }
 main{
-  /* background-color: rgba(148, 148, 210, 0.5); */
+  background-color: rgba(148, 148, 210, 0.5);
 }
 h1{
   text-align: center;
@@ -31,7 +31,7 @@ a:hover{
   color: brown;
   }
 body{
-  background-image: url("/static/css/img/foto.jpg");
+  background-image: url("/static/css/foto.jpg");
   background-size: cover;
 }
 footer{
