@@ -41,3 +41,16 @@ def getUser(login, password):
   connection.close()
 
   return result
+
+def addGoods(idGoods, title, price, desc, pathPhoto):
+  connection = sqlite3.connect("base.db")
+  cursor = connection.cursor()
+
+
+  cursor.execute('''
+       INSERT FROM goods 
+       VALUES (?, ?, ?, ?, ?)          
+
+''', (idGoods, title, price, desc, pathPhoto))
+  connection.commit()
+  connection.close()

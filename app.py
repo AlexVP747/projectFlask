@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, session, redirect
-from db.models import getALLGoods, getRangeGoods, getUser
+from db.models import getALLGoods, getRangeGoods, getUser, addGoods
+from os import path
 
 app = Flask(__name__)
 app.secret_key = "secret key"
@@ -21,13 +22,31 @@ def goods():
     maxPrice = request.form["max"]
     return render_template("goods.html", goods=getRangeGoods(minPrice, maxPrice))
 
-@app.route("/admin")
+@app.route("/admin", methods=["GET", "POST"])
 def adminPage():
   # Перенаправление пользователя, если он не зарегистрирован
   if "login" not in session:
     return redirect("/admin/login")
   
-  return render_template("admin.html", login=session["login"])
+  if request.method == "GET":
+    return render_template("admin.html", login=session["login"], goods=getALLGoods())
+  elif request.method == "POST":
+    idGoods = request.form["id"]
+    title = request.form["title"]
+    price = request.form["price"]
+    desc = request.form["desc"]
+
+    photo = request.files["photo"]
+
+    absPath = path.join("static", "apploads", photo.filename)
+
+    addGoods(idGoods, title, price, desc, absPath)
+    photo.save(absPath)
+
+    return render_template("admin.html", login=session["login"], goods=getALLGoods())
+
+
+
 
 @app.route("/admin/login", methods=["GET", "POST"])
 def adminLoginPage():
