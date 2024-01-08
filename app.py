@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, session, redirect
-from db.models import getALLGoods, getRangeGoods, getUser, addGoods
+from db.models import getALLGoods, getRangeGoods, getUser, addGoods, deleteGoods
 from os import path
+import json
 
 app = Flask(__name__)
 app.secret_key = "secret key"
@@ -45,9 +46,6 @@ def adminPage():
 
     return render_template("admin.html", login=session["login"], goods=getALLGoods())
 
-
-
-
 @app.route("/admin/login", methods=["GET", "POST"])
 def adminLoginPage():
   if request.method == "GET":
@@ -64,6 +62,11 @@ def adminLoginPage():
     else:
       return render_template("adminLogin.html", error="Логин или пароль введены неправильно")
 
+@app.route("/deleteGoods", methods=["POST"])
+def apiDeleteGoods():
+    id = request.json
+    deleteGoods(int(id))
+    return json.dumps(getALLGoods())
 
 app.run(debug=True)
 

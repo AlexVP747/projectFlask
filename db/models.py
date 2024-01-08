@@ -46,7 +46,6 @@ def addGoods(idGoods, title, price, desc, pathPhoto):
   connection = sqlite3.connect("base.db")
   cursor = connection.cursor()
 
-
   cursor.execute('''
        INSERT FROM goods 
        VALUES (?, ?, ?, ?, ?)          
@@ -54,3 +53,17 @@ def addGoods(idGoods, title, price, desc, pathPhoto):
 ''', (idGoods, title, price, desc, pathPhoto))
   connection.commit()
   connection.close()
+
+def deleteGoods(idGoods):
+   connection = sqlite3.connect("base.db")
+
+   cursor = connection.cursor()
+
+   cursor.execute('''
+       DELETE FROM goods    
+       WHERE id = ?
+''', [idGoods])
+
+   connection.commit()
+
+   connection.close()

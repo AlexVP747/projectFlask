@@ -1,5 +1,13 @@
 {% extends "base.html" %}
 
+
+{% block styles %}
+<link rel="stylesheet" href="/static/css/admin.css">
+
+{% endblock styles %}
+
+
+
 {% block title %}Административная панель{% endblock title %}
 
 {% block main %}
@@ -9,6 +17,7 @@
 
   {% for good in goods%}
 <p>Id: {{ good[0] }}; Название: {{ good[1] }}; Цена:{{ good[2] }} </p>
+<button data-id="{{ good[0] }}" class="delete-good">Удалить запись</button>
   {% endfor%}
 
 <form method="post" enctype="multipart/form-data">
@@ -30,7 +39,7 @@
   <input type="submit" value="Добавить товар">
 
 </form>
-
+<script src="/static/js/admin.js"></script>
 {% endblock main %}
 
 
