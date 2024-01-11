@@ -47,7 +47,7 @@ def addGoods(idGoods, title, price, desc, pathPhoto):
   cursor = connection.cursor()
 
   cursor.execute('''
-       INSERT FROM goods 
+       INSERT INTO goods 
        VALUES (?, ?, ?, ?, ?)          
 
 ''', (idGoods, title, price, desc, pathPhoto))

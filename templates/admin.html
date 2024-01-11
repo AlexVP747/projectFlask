@@ -13,12 +13,12 @@
 {% block main %}
   <p>Здравствуйте, {{ login }}</p>
 
-
-
-  {% for good in goods%}
-<p>Id: {{ good[0] }}; Название: {{ good[1] }}; Цена:{{ good[2] }} </p>
-<button data-id="{{ good[0] }}" class="delete-good">Удалить запись</button>
-  {% endfor%}
+  <div id="list-goods">
+    {% for good in goods%}
+    <p>Id: {{ good[0] }}; Название: {{ good[1] }}; Цена:{{ good[2] }} </p>
+    <button data-id="{{ good[0] }}" class="delete-good">Удалить запись</button>
+    {% endfor%}
+  </div>
 
 <form method="post" enctype="multipart/form-data">
   <label for="id">ID</label>
